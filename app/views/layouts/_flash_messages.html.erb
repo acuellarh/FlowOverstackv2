@@ -1,0 +1,7 @@
+<!-- EL método flash_msg(key), esta definido en application_helper.rb -->
+
+<% flash.each do |key, msg| %>
+<div class="<%= flash_msg(key)%>">
+  <p><%=msg%></p>
+</div>
+<% end%>
