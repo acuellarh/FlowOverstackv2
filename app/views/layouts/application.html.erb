@@ -10,10 +10,15 @@
   </head>
 
   <body>
+    <%= render  "layouts/flash_messages" %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= link_to  "Ingresar", new_user_session_path %> <br>
+    <%= link_to  "Salir", destroy_user_session_path, method: :delete %>
       
     <%= yield %>
+    
+    <script>
+      $('.alert').slideUp(2000);
+    </script>
   </body>
 </html>
