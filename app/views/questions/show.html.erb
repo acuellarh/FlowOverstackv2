@@ -1,8 +1,13 @@
-<h1>Listado de preguntas</h1>
-<br>|   
+  
 
 
 <h1><%= @question.title %></h1>
 <h4>"<%= @question.content %>"</h4>
 
-<%= link_to 'Remove', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="mt-5">
+  <%= link_to 'Remove', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br>
+  <%= link_to  "Volver", questions_path %>
+  <br>
+  <%= link_to 'Edit', edit_question_path, method: 'get'%>
+</div>

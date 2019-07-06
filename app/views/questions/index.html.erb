@@ -46,6 +46,12 @@
   </div>
 
 
-<%#= link_to 'Edit', edit_question_path(question), method: 'get'%>
-<%#= link_to 'Remove', question_path(question), method: 'delete', data: { confirm: 'Are you sure?' } %>
+ <div class="mt-5">        
+  <% @questions.each do |question| %>
+    <%= link_to 'Edit', edit_question_path(question), method: 'get'%>
+    <%= link_to 'Remove', question_path(question), method: 'delete', data: { confirm: 'Are you sure?' } %>
+    <br>
+ <% end %>
+</div>    
+
    
