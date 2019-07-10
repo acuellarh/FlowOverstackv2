@@ -1,0 +1,8 @@
+<%= form_for [@question, @question.answers.new], remote:true do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, rows: 2, placeholder:"Comparte tu respuesta aqui", class:"form-control", id:"put_answer_box" %>
+  </div>
+
+  <%= f.submit 'Responder!!!', class:"btn btn-outline-dark float-right"%>
+
+<% end %>

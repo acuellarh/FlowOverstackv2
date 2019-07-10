@@ -1,13 +1,27 @@
-  
 
+<div>  
+  <h1><%= @question.title %></h1>
+  <p>"<%= @question.content %>"</p>
 
-<h1><%= @question.title %></h1>
-<h4>"<%= @question.content %>"</h4>
+  <p>
+    <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
+    <%= link_to  "Volver   -", questions_path %>    
+    <%= link_to 'Edit', edit_question_path, method: 'get'%>
+  </p>
 
-<div class="mt-5">
-  <%= link_to 'Remove', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <br>
-  <%= link_to  "Volver", questions_path %>
-  <br>
-  <%= link_to 'Edit', edit_question_path, method: 'get'%>
 </div>
+
+
+<div>
+  <h2>Respuestas</h2>
+  <br>
+  <div class="answer_list">
+      <%= render @question.answers.order(created_at: :asc) %>
+  </div>
+
+  <%= render  "answers/form" %>
+
+</div>
+
+
+
