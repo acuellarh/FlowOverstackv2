@@ -1,27 +1,42 @@
+<div class="container">
 
-<div>  
-  <h1><%= @question.title %></h1>
-  <p>"<%= @question.content %>"</p>
+  <div>  
+    <h1><%= @question.title %></h1>
+    <p>"<%= @question.content %>"</p>
+  
+    <p>
+      <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
+      <%= link_to  "Volver   -", questions_path %>    
+      <%= link_to 'Edit', edit_question_path, method: 'get'%>
+    </p>
+  
+  </div>
+    <h2>Comentarios</h2>
+    <br>
+    <div id="comment_list">
+        <%= render @question.comments %>
+    </div>
+  
+    <%= render  "comments/form", commentable: @question %>
 
-  <p>
-    <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
-    <%= link_to  "Volver   -", questions_path %>    
-    <%= link_to 'Edit', edit_question_path, method: 'get'%>
-  </p>
+  <div>
 
-</div>
-
-
-<div>
-  <h2>Respuestas</h2>
-  <br>
-  <div class="answer_list">
-      <%= render @question.answers.order(created_at: :asc) %>
+  </div>
+  
+  
+  <div>
+    <h2>Respuestas</h2>
+    <br>
+    <div class="answer_list">
+        <%= render @question.answers.order(created_at: :asc) %>
+    </div>
+  
+    <%= render  "answers/form" %>
+  
   </div>
 
-  <%= render  "answers/form" %>
-
 </div>
+
 
 
 
