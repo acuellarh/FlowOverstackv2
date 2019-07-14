@@ -1,14 +1,23 @@
-<div id="answer-id-<%= answer.id%>"> <!-- Creo un div con el id de la respuesta para después poder manipular esta única respuesta -->
+<div id="answer-<%= answer.id%>"> <!-- Creo un div con el id de la respuesta para después poder manipular esta única respuesta -->
   <div>
     <p>
       <%= answer.content %>
-
       <% if user_signed_in? && current_user == answer.user %>
         <span> <%= link_to  "   Eliminar", [@question, answer], method: :delete,remote: true, data: { confirm: 'Esta seguro de eliminar la respuesta' } %> </span>
       <% end %>
-      
-    </p>  
-  </div> 
+    </p>
+  </div>     
+
+  <div id="answer_comment_list">
+    <%= render  answer.comments %>  
+  </div>
+
+  <% if user_signed_in? %>
+    <div id="anscom-box" class="pb-2">
+      <%= render  "comments/form", commentable: answer %>
+    </div>
+  <% end %>  
+    
 </div>
 
 

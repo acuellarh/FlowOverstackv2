@@ -19,21 +19,18 @@
   
     <%= render  "comments/form", commentable: @question %>
 
-  <div>
-
-  </div>
-  
+ 
   
   <div>
     <h2>Respuestas</h2>
     <br>
     <div class="answer_list">
         <%= render @question.answers.order(created_at: :asc) %>
-    </div>
-  
-    <%= render  "answers/form" %>
-  
+    </div>  
+    <%= render  "answers/form" %>  
   </div>
+
+
 
 </div>
 

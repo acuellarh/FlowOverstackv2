@@ -1,5 +1,11 @@
 class AnswersController < ApplicationController
 
+    def show
+      @question = Question.find(params[:question_id])
+      @answer = @question.find(params[:id])
+      @comment = @answer.comments.new
+    end
+
     def create
         @question = Question.find(params[:question_id])
         @answer = @question.answers.new(ans_params)      
@@ -22,8 +28,7 @@ class AnswersController < ApplicationController
       
         respond_to do |format|
           format.html {redirect_to question_path(@question), notice: 'Respuesta eliminada correctamente.'}
-          format.js 
-          flash[:success] = "Respuesta eliminada correctamente.!"
+          format.js {flash[:success] = "Respuesta eliminada correctamente.!"}          
         end
 
     end
