@@ -1,11 +1,11 @@
-
-  
   <div class="container">
+
     <div class="row">
       <div class="col">
           <h1>Preguntas</h1>
       </div>
     </div>
+
     <div class="row mb-4 text-right">
       <div class="col">
           <%= link_to "Hacer una Pregunta", new_question_path, class: "btn btn-primary"%>
@@ -13,45 +13,37 @@
     </div>
     
     <div class="row">
-      <!-- <div class="col">
-        <p>Votos</p> 
-      </div>
-      <div class="col">
-        <p>Respuestas</p>  
-      </div> -->
-      <div class="col-md-1">        
-        <% @questions.each do |question| %> 
-         <hr>       
-         <h3 class="h4 text-center">x</h3>       
-          <p class="text-muted text-center">Votos</p>
-        <% end %>
-      </div>
-      <div class="col-md-1">        
-        <% @questions.each do |question| %> 
-         <hr>       
-         <h3 class="h4 text-center">y</h3>       
-          <p class="text-muted text-center">Respuestas</p>
-        <% end %>
-      </div>
       <div class="col-md-8 ml-5">        
-        <% @questions.each do |question| %>
-         <hr>
-         <h3 class="h4"><%= link_to question.title, question_path(question)  %> </h3>       
-          <p class="text-muted">Preguntó <%= question.user.email %> hace  
-           <%= time_ago_in_words(question.created_at)%> ago           
-          </p>
-        <% end %>
+        <table class="table table-borderless table-hover">
+          <tbody>              
+              <% @questions.each do |question| %>                 
+                <tr>
+                  <td class="text-center">
+                    <span class="h4"><%= question.votes.count %></span>
+                    <span class="text-muted d-block">Votos</span>
+                  </td>
+                  <td class="text-center">
+                    <span class="h4"><%= question.answers.count %></span>
+                    <span class="text-muted d-block">Respuestas</span>  
+                  </td>
+                  <td>
+                    <span class="h4"><%= link_to question.title, question_path(question)  %> </span>       
+                    <span class="text-muted d-block">Preguntó <%= question.user.email %> hace  
+                      <%= time_ago_in_words(question.created_at)%> ago           
+                    </span>
+                  </td>
+                  <td>
+                    <span><%= link_to 'Edit', edit_question_path(question), method: 'get'%></span>
+                    <span class="d-block"><%= link_to 'Remove', question_path(question), method: 'delete', data: { confirm: 'Are you sure?' } %></span>                   
+                  </td>                  
+                </tr>                
+             <% end %>
+          </tbody>
+        </table>        
       </div>
     </div>
   </div>
 
-
- <div class="mt-5">        
-  <% @questions.each do |question| %>
-    <%= link_to 'Edit', edit_question_path(question), method: 'get'%>
-    <%= link_to 'Remove', question_path(question), method: 'delete', data: { confirm: 'Are you sure?' } %>
-    <br>
- <% end %>
-</div>    
+ 
 
    

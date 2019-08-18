@@ -1,23 +1,43 @@
 <div class="container">
 
-  <div>  
-    <h1><%= @question.title %></h1>
-    <p>"<%= @question.content %>"</p>
-  
-    <p>
-      <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
-      <%= link_to  "Volver   -", questions_path %>    
-      <%= link_to 'Edit', edit_question_path, method: 'get'%>
-    </p>
-  
-  </div>
-    <h2>Comentarios</h2>
-    <br>
-    <div id="comment_list">
-        <%= render @question.comments %>
+  <div class="row">
+    <div class="col-md-10">
+      <h1><%= @question.title %></h1>
     </div>
-  
-    <%= render  "comments/form", commentable: @question %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">    
+      <% if @question.voted_by? current_user %>
+          <%= link_to question_vote_path(@question), method: :delete, class: "d-flex flex-column align-items-center mx-2 my-2" do %>                             
+          <span class="fas fa-sort-down"></span>         
+          <span class=""><%= @question.votes.count %></span>                  
+        <% end %>
+        <% else %>
+        <%= link_to question_vote_path(@question), method: :post, class: "d-flex flex-column align-items-center mx-2 my-2" do %>          
+          <span class="fas fa-sort-up"></span> 
+          <span class=""><%= @question.votes.count %></span>
+        <% end %>
+      <% end %>       
+    </div>
+    <div class="col-md-8">
+      <p><%= @question.content %></p>
+      <p>
+        <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
+        <%= link_to  "Volver   -", questions_path %>    
+        <%= link_to 'Edit', edit_question_path, method: 'get'%>
+      </p>
+      <h2>Comentarios</h2>
+      <br>
+      <div id="comment_list">
+          <%= render @question.comments %>
+      </div>    
+      <%= render  "comments/form", commentable: @question %>
+
+    </div>
+  </div>
+
+
 
  
   
