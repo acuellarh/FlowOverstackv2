@@ -1,11 +1,9 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-10">
       <h1><%= @question.title %></h1>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-1">    
       <% if @question.voted_by? current_user %>
@@ -33,25 +31,22 @@
           <%= render @question.comments %>
       </div>    
       <%= render  "comments/form", commentable: @question %>
-
     </div>
   </div>
-
-
-
- 
-  
-  <div>
-    <h2>Respuestas</h2>
-    <br>
-    <div class="answer_list">
-        <%= render @question.answers.order(created_at: :asc) %>
-    </div>  
-    <%= render  "answers/form" %>  
+  <div class="row">
+    <div class="col-md-10">
+      <h2><%= @question.answers.count %> Respuesta(s)</h2>
+      <br>
+    </div>
   </div>
-
-
-
+  <div>
+    <%= render @question.answers.order(created_at: :asc) %>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-1">
+      <%= render  "answers/form" %>
+    </div>    
+  </div>
 </div>
 
 

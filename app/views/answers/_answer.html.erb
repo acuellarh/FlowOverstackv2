@@ -1,23 +1,37 @@
-<div id="answer-<%= answer.id%>"> <!-- Creo un div con el id de la respuesta para después poder manipular esta única respuesta -->
-  <div>
-    <p>
-      <%= answer.content %>
-      <% if user_signed_in? && current_user == answer.user %>
-        <span> <%= link_to  "   Eliminar", [@question, answer], method: :delete,remote: true, data: { confirm: 'Esta seguro de eliminar la respuesta' } %> </span>
-      <% end %>
-    </p>
-  </div>     
-
-  <div id="answer_comment_list">
-    <%= render  answer.comments %>  
-  </div>
-
-  <% if user_signed_in? %>
-    <div id="anscom-box" class="pb-2">
-      <%= render  "comments/form", commentable: answer %>
+<div id="answer-<%= answer.id%>" class="container"> <!-- Creo un div con el id de la respuesta para después poder manipular esta única respuesta -->
+  <div class="row">
+    <div class="col-md-1">
+      <% if answer.voted_by? current_user %>
+          <%= link_to answer_vote_path(answer), method: :delete, class: "d-flex flex-column align-items-center mx-2 my-2" do %>                             
+            <span class="fas fa-sort-down"></span>         
+            <span class=""><%= answer.votes.count %></span>                  
+            <% end %>
+        <% else %>
+          <%= link_to answer_vote_path(answer), method: :post, class: "d-flex flex-column align-items-center mx-2 my-2" do %>          
+            <span class="fas fa-sort-up"></span> 
+            <span class=""><%= answer.votes.count %></span>
+            <% end %>
+      <% end %> 
     </div>
-  <% end %>  
-    
+    <div class="col-md-8">
+        <div>
+          <p>
+            <%= answer.content %>
+            <% if user_signed_in? && current_user == answer.user %>
+              <span> <%= link_to  "   Eliminar", [@question, answer], method: :delete,remote: true, data: { confirm: 'Esta seguro de eliminar la respuesta' } %> </span>
+            <% end %>
+          </p>
+        </div>
+        <div id="answer_comment_list">
+          <%= render  answer.comments %>  
+        </div>      
+        <% if user_signed_in? %>
+          <div id="anscom-box" class="pb-2">
+            <%= render  "comments/form", commentable: answer %>
+          </div>
+        <% end %>
+    </div>
+  </div>   
 </div>
 
 
