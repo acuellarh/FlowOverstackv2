@@ -29,8 +29,10 @@
       <br>
       <div id="comment_list">
           <%= render @question.comments %>
-      </div>    
+      </div>
+      <% if user_signed_in? %>  
       <%= render  "comments/form", commentable: @question %>
+      <% end %> 
     </div>
   </div>
   <div class="row">
