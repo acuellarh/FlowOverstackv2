@@ -13,7 +13,7 @@
         <% end %>
         <% else %>
         <%= link_to question_vote_path(@question), method: :post, class: "d-flex flex-column align-items-center mx-2 my-2" do %>          
-          <span class="fas fa-sort-up"></span> 
+          <span class="fas fa-sort-up"></span>         
           <span class=""><%= @question.votes.count %></span>
         <% end %>
       <% end %>       
