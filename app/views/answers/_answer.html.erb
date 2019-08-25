@@ -16,7 +16,7 @@
     <div class="col-md-8">
         <div>
           <p>
-            <%= answer.content %>
+            <%= markdown(answer.content) %>
             <% if user_signed_in? && current_user == answer.user %>
               <span> <%= link_to  "   Eliminar", [@question, answer], method: :delete,remote: true, data: { confirm: 'Esta seguro de eliminar la respuesta' } %> </span>
             <% end %>

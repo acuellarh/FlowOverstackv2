@@ -19,7 +19,7 @@
       <% end %>       
     </div>
     <div class="col-md-8">
-      <p><%= @question.content %></p>
+      <p><%= markdown(@question.content) %></p>
       <p>
         <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
         <%= link_to  "Volver   -", questions_path %>    
