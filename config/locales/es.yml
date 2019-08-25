@@ -10,9 +10,11 @@ es:
 
   activerecord:
     attributes:
-      post:
+      question:
         title: "Titulo"
         content: "Contenido"
+      answer:
+        content: "Contenido"  
       comment:
         content: "Contenido"  
 

@@ -16,6 +16,7 @@ class Question < ApplicationRecord
   has_many :answers
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
+  validates :title, :content, presence: true
 
   def voted_by?(user)
     votes.exists?(user: user)    
