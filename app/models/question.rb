@@ -23,5 +23,6 @@ class Question < ApplicationRecord
 
   def self.search(search)
     search ? where(['title LIKE ?', "%#{search}%"]) :all    
+    search ? where(['content LIKE ?', "%#{search}%"]) :all    
   end
 end
