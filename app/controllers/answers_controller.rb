@@ -13,10 +13,9 @@ class AnswersController < ApplicationController
         respond_to do |format|
           if @answer.save
             format.html {redirect_to question_path(@question), notice: 'Respuesta creada correctamente.'}
-            format.js # render create.js.erb
+            format.js { flash.now[:success] = 'La respuesta se ha agregado correctamente' } # render create.js.erb
           else
-            format.html { 'questions/show' }
-            flash[:error] = 'La respuesta no se ha agregado correctamente'
+            format.html { 'questions/show' }         
           end
         end
     end
