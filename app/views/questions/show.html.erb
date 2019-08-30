@@ -37,7 +37,7 @@
   </div>
   <div class="row">
     <div class="col-md-10">
-      <h2><%= @question.answers.count %> Respuesta(s)</h2>
+      <h2><span class="ans-quantity"><%= @question.answers.count %></span> Respuesta(s)</h2>      
       <br>
     </div>
   </div>
@@ -46,7 +46,9 @@
   </div>
   <div class="row">
     <div class="col-md-8 offset-1">
-      <%= render  "answers/form" %>
+      <% if user_signed_in? %> 
+        <%= render  "answers/form" %>
+      <% end %> 
     </div>    
   </div>
 </div>

@@ -1,6 +1,12 @@
+$("<%= escape_javascript(render 'layouts/flash_messages') %>").appendTo('.answer_list');
+$('.alert').fadeOut(4000)
+
 $("<%=escape_javascript(render(@answer))%>").appendTo('.answer_list')
 $("#put_answer_box").val('');
+$('.ans-quantity').html('<%= @question.answers.count %> ')
 
-$('.flash_wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");
-$('.alert').fadeOut(4000)
+
+
+
+
 
