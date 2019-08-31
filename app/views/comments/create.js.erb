@@ -4,7 +4,7 @@
     $("<%= escape_javascript(render(@comment)) %>").appendTo('#comment_list');
     $('#put_comment_box').val('');
   <% elsif @comment.commentable_type == 'Answer' %>
-    $("<%= escape_javascript(render(@comment)) %>").appendTo('#answer-<%= @comment.commentable_id %> #answer_comment_list');
+    $("<%= escape_javascript(render(@comment)) %>").appendTo('#answer-id-<%= @comment.commentable_id %> #answer_comment_list');
     $('#answer-<%= @comment.commentable_id %> #put_comment_box').val('');
 <% end %>
 
