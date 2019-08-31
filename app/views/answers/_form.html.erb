@@ -1,7 +1,8 @@
 <br>
 <br>
 <div>
-<%= form_for [@question, @question.answers.new], remote:true do |f| %>
+<%#= form_for [@question, @question.answers.new], remote:true do |f| %>
+<%= form_for [@question, @answer], remote:true do |f| %>
   <div class="form-group">
     <%= f.text_area :content, rows: 2, placeholder:"Comparte tu respuesta aqui", class:"form-control", id:"put_answer_box" %>
   </div>
