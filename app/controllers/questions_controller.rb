@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update, :destroy]
+  before_action :protect_access, except: %i[index show]
 
   def index
      @questions = Question.search(params[:search]).order(created_at: :desc)
@@ -54,6 +55,10 @@ class QuestionsController < ApplicationController
 
   def set_params
     @question = Question.find(params[:id])  
+  end
+
+  def protect_access
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

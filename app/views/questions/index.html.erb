@@ -6,12 +6,10 @@
       </div>
     </div>
 
-    <div class="row mb-4 text-right">
-      <% if user_signed_in? %> 
-        <div class="col">
-            <%= link_to "Hacer una Pregunta", new_question_path, class: "btn btn-primary"%>
-        </div>
-      <%end%>
+    <div class="row mb-4 text-right">      
+      <div class="col">
+          <%= link_to "Hacer una Pregunta", new_question_path, class: "btn btn-primary"%>
+      </div>      
     </div>
     
     <div class="row">
