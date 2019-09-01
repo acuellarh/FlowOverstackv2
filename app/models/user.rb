@@ -23,6 +23,9 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes   
 
+  validates :email, uniqueness: {case_sensitive: false}
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Solo correos validos" }
+
   
   def username
     self.email.split("@")[0]    
