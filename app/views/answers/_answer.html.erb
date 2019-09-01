@@ -3,13 +3,13 @@
     <div class="col-md-1">
       <% if answer.voted_by? current_user %>
           <%= link_to answer_vote_path(answer), method: :delete, class: "d-flex flex-column align-items-center mx-2 my-2" do %>                             
-            <span class="fas fa-sort-down"></span>         
-            <span class=""><%= answer.votes.count %></span>                  
+            <span class="fas fa-sort-down brand-tomato"></span>         
+            <span class="brand-black"><%= answer.votes.count %></span>                  
             <% end %>
         <% else %>
           <%= link_to answer_vote_path(answer), method: :post, class: "d-flex flex-column align-items-center mx-2 my-2" do %>          
-            <span class="fas fa-sort-up"></span> 
-            <span class=""><%= answer.votes.count %></span>
+            <span class="fas fa-sort-up brand-black"></span> 
+            <span class="brand-black"><%= answer.votes.count %></span>
             <% end %>
       <% end %> 
     </div>
