@@ -25,8 +25,7 @@
         <%= link_to  "Volver   -", questions_path %>    
         <%= link_to 'Editar', edit_question_path, method: 'get'%>
       </p>
-      <h2>Comentarios</h2>
-      <br>
+    
       <div id="comment_list">
           <%= render @question.comments %>
       </div>
@@ -41,11 +40,11 @@
       <br>
     </div>
   </div>
-  <div class="answer_list">
+  <div class="answer_list offset-1">
     <%= render @question.answers.order(created_at: :asc) %>
   </div>
   <div class="row">
-    <div class="col-md-8 offset-1">
+    <div class="col-md-8 offset-2">
       <% if user_signed_in? %> 
         <%= render  "answers/form" %>
       <% end %> 
