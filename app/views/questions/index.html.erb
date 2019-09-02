@@ -1,7 +1,7 @@
   <div class="container">
 
     <div class="row">
-      <div class="col">
+      <div class="col mt-4">
           <h1>Preguntas</h1>
       </div>
     </div>
@@ -32,10 +32,10 @@
                       <%= time_ago_in_words(question.created_at)%> ago           
                     </span>
                   </td>
-                  <td>
+                  <!-- <td>
                     <span><%= link_to 'Edit', edit_question_path(question), method: 'get'%></span>
                     <span class="d-block"><%= link_to 'Remove', question_path(question), method: 'delete', data: { confirm: 'Are you sure?' } %></span>                   
-                  </td>                  
+                  </td>                   -->
                 </tr>                
              <% end %>
           </tbody>

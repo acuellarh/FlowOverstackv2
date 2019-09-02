@@ -4,12 +4,11 @@
     <title>FlowOverstack</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
- 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Navbar</span>
+      <div class="container">
+        <span class="navbar-brand mb-0 h1">FlowOverstack</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,16 +32,11 @@
             <%= form_tag  questions_path, method: :get do %>           
               <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder:"Buscar" %>
               <%= submit_tag "Buscar", :name => nil ,class: "btn btn-outline-success my-2 my-sm-0 " %>
-            <% end %>  
-            
-            <span class="far fa-search"></span>
-
+            <% end %>            
           </form>
         </div>
-      </nav>
-
-
-
+      </div>
+    </nav>
   </head>   
 
   <body>
@@ -56,5 +50,6 @@
     <script>     
       $('.alert').fadeOut(4000)
     </script>
+    
   </body>
 </html>
