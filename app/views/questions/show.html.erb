@@ -20,11 +20,11 @@
     </div>
     <div class="col-md-8">
       <p><%= markdown(@question.content) %></p>
-      <p>
-        <%= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
-        <%= link_to  "Volver   -", questions_path %>    
-        <%= link_to 'Editar', edit_question_path, method: 'get'%>
-      </p>
+      
+        <%#= link_to 'Remove   -', @question, method: :delete, data: { confirm: 'Esta seguro de eliminar la pregunta?' } %>
+        <%#= link_to  "Volver   -", questions_path %>    
+        <%#= link_to 'Editar', edit_question_path, method: 'get'%>
+      
     
       <div id="comment_list">
           <%= render @question.comments %>
@@ -36,7 +36,7 @@
   </div>
   <div class="row">
     <div class="col-md-10 offset-1">
-      <h2><span class="ans-quantity"><%= @question.answers.count %></span> Respuesta(s)</h2>      
+      <h2 class="mt-4"><span class="ans-quantity"><%= @question.answers.count %></span> Respuesta(s)</h2>      
       <br>
     </div>
   </div>
